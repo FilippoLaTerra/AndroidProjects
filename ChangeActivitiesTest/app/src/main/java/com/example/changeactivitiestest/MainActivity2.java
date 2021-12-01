@@ -7,20 +7,20 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity2 extends AppCompatActivity {
 
-    Button  changeActivityButton;
+    Button turnBackButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main2);
 
-        changeActivityButton = findViewById(R.id.changeActivityButton);
+        turnBackButton = findViewById(R.id.turnBackButton);
     }
 
     public void onClick(View v){
-        Intent switchActivity = new Intent(this, MainActivity2.class);
+        Intent switchActivity = new Intent(this, MainActivity.class);
         startActivity(switchActivity);
     }
 }

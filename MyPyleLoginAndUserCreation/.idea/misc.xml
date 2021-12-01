@@ -3,9 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Filippo/Desktop/Progetti_Android/MyPyle_Repository/Smanetto2/app/src/main/res/layout/activity_main.xml" value="0.19635416666666666" />
-        <entry key="..\:/Users/Filippo/Desktop/Smanetto2/app/src/main/res/layout/activity_main.xml" value="0.33" />
-        <entry key="..\:/Users/filippo.laterra/Desktop/Smanetto2/app/src/main/res/layout/activity_main.xml" value="0.2957427536231884" />
+        <entry key="..\:/Users/Filippo/Desktop/Progetti_Android/MyPyleLoginAndUserCreation/app/src/main/res/layout/activity_StartPage.xml" value="0.2957427536231884" />
+        <entry key="..\:/Users/Filippo/Desktop/Progetti_Android/MyPyleLoginAndUserCreation/app/src/main/res/layout/activity_log_in_page.xml" value="0.25" />
+        <entry key="..\:/Users/Filippo/Desktop/Progetti_Android/MyPyleLoginAndUserCreation/app/src/main/res/layout/activity_sign_up_page.xml" value="0.2957427536231884" />
       </map>
     </option>
   </component>

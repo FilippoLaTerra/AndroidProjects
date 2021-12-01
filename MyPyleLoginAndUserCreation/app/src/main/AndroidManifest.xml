@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.changeactivitiestest">
+    package="com.example.mypyle_loginandusercreation">
 
     <application
         android:allowBackup="true"
@@ -8,12 +8,15 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ChangeActivitiesTest">
+        android:theme="@style/Theme.MyPyleLoginAndUserCreation">
         <activity
-            android:name=".MainActivity2"
+            android:name=".LogInPage"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".SignUpPage"
+            android:exported="false" />
+        <activity
+            android:name=".StartPage"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
