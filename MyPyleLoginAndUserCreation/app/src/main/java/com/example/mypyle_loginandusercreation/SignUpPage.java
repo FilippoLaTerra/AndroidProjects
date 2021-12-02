@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
+import com.google.android.material.textfield.TextInputLayout;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -15,6 +17,7 @@ import java.util.Random;
 public class SignUpPage extends AppCompatActivity {
 
     protected EditText[] fields = new EditText[5];
+    protected TextInputLayout[] layouts = new TextInputLayout[5];
     protected int userID;
     protected int uniquePassCode;
     protected List userData;
@@ -24,25 +27,37 @@ public class SignUpPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_page);
         getSupportActionBar().hide();
-        fields[0] = findViewById(R.id.firstNameField);
-        fields[1] = findViewById(R.id.lastNameField);
-        fields[2] = findViewById(R.id.emailField);
-        fields[3] = findViewById(R.id.passwordField);
-        fields[4] = findViewById(R.id.confirmPasswordField);
+
+        fields[0] = findViewById(R.id.firstNameEditText);
+        fields[1] = findViewById(R.id.lastNameEditText);
+        fields[2] = findViewById(R.id.emailEditText);
+        fields[3] = findViewById(R.id.passwordEditText);
+        fields[4] = findViewById(R.id.confirmPasswordEditText);
+
+        layouts[0] = findViewById(R.id.firstNameTextLayout);
+        layouts[1] = findViewById(R.id.lastNameTextLayout);
+        layouts[2] = findViewById(R.id.emailTextLayout);
+        layouts[3] = findViewById(R.id.passwordTextLayout);
+        layouts[4] = findViewById(R.id.confirmPasswordTextLayout);
 
     }
 
     public int convalidateUser(View v) {
 
         Boolean anyFieldEmpty = false;
-        for (EditText f : fields) {
-            if (isEmpty(f)) {
+
+        for (TextInputLayout l : layouts) {
+            l.setError(null);
+        }
+
+        for (int i = 0; i < fields.length; i++) {
+            if (isEmpty(fields[i])) {
                 anyFieldEmpty = true;
-                f.setError("Cannot Be empty");
-                Log.e("Error", f.getId() + " cannot be empty");
+                layouts[i].setError("Cannot Be empty");
+                Log.e("Error", fields[i].getId() + " cannot be empty");
             }
         }
-        if(anyFieldEmpty){
+        if (anyFieldEmpty) {
             return 1;
         }
         String password = fields[3].getText().toString();
@@ -56,8 +71,8 @@ public class SignUpPage extends AppCompatActivity {
 
             fields[3].getText().clear();
             fields[4].getText().clear();
-            fields[3].setError("Passwords do not match");
-            fields[4].setError("Passwords do not match");
+            layouts[3].setError("Passwords do not match");
+            layouts[4].setError("Passwords do not match");
             Log.e("Error", "Passwords do not match");
         }
 

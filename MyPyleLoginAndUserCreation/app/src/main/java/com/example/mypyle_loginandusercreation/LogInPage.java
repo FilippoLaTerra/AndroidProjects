@@ -43,11 +43,11 @@ public class LogInPage extends AppCompatActivity {
         feedbackText.setText("");
         boolean emptyFlag = false;
         if (isEmpty(usernameTextInputEdit)) {
-            usernameTextInputEdit.setError("Il campo non può essere vuoto");
+            usernameTextInput.setError("Il campo non può essere vuoto");
             emptyFlag = true;
         }
         if(isEmpty(passwordTextInputEdit)){
-            passwordTextInputEdit.setError("Il campo non può essere vuoto");
+            passwordTextInput.setError("Il campo non può essere vuoto");
             emptyFlag = true;
         }
         if(emptyFlag){
@@ -60,7 +60,7 @@ public class LogInPage extends AppCompatActivity {
         int userID = checkCredentials(userCredentials);
 
         if (userID < 0) {
-            passwordTextInputEdit.setError("Username o Password errati");
+            passwordTextInput.setError("Username o Password errati");
             Log.e("Cretentials", "Username or Password incorrect");
             return 1;
         } else {

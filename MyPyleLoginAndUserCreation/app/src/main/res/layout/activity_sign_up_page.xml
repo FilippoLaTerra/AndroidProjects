@@ -49,31 +49,37 @@
                 tools:layout_editor_absoluteY="109dp">
 
                 <TextView
-                    android:id="@+id/fisrtNameLabel"
+                    android:id="@+id/firstNameLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="243dp"
                     android:text="First Name"
                     android:textColor="#0E0E0E"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/firstNameField"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <EditText
-                    android:id="@+id/firstNameField"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/firstNameTextLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
                     android:layout_marginBottom="10dp"
-                    android:backgroundTint="#BF936D"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:textColor="#0E0E0E"
+                    app:errorEnabled="true"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/fisrtNameLabel" />
+                    app:layout_constraintTop_toBottomOf="@+id/firstNameLabel">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/firstNameEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#00FFFFFF"
+                        app:textInputLayoutFocusedRectEnabled="false" />
+                </com.google.android.material.textfield.TextInputLayout>
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -90,30 +96,32 @@
                     android:layout_height="27dp"
                     android:layout_marginStart="1dp"
                     android:layout_marginEnd="243dp"
-                    android:layout_marginBottom="1dp"
                     android:text="Last Name"
                     android:textColor="#0E0E0E"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/lastNameField"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.507"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <EditText
-                    android:id="@+id/lastNameField"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/lastNameTextLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="1dp"
-                    android:layout_marginBottom="11dp"
-                    android:backgroundTint="#BF936D"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:textColor="#0E0E0E"
+                    android:layout_marginBottom="10dp"
+                    app:errorEnabled="true"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/lastNameLabel" />
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/lastNameEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#00FFFFFF"
+                        app:textInputLayoutFocusedRectEnabled="false" />
+                </com.google.android.material.textfield.TextInputLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -133,24 +141,29 @@
                     android:text="Email"
                     android:textColor="#0E0E0E"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/emailField"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <EditText
-                    android:id="@+id/emailField"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/emailTextLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
-                    android:backgroundTint="#BF936D"
-                    android:ems="10"
-                    android:inputType="textEmailSubject"
-                    android:textColor="#0E0E0E"
+                    app:errorEnabled="true"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/emailLabel" />
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/emailEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#00FFFFFF"
+                        app:textInputLayoutFocusedRectEnabled="false" />
+                </com.google.android.material.textfield.TextInputLayout>
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -169,24 +182,29 @@
                     android:text="Password"
                     android:textColor="#0E0E0E"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/passwordField"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <EditText
-                    android:id="@+id/passwordField"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/passwordTextLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
-                    android:backgroundTint="#BF936D"
-                    android:ems="10"
-                    android:inputType="textPassword"
-                    android:textColor="#0E0E0E"
+                    app:errorEnabled="true"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/passwordLabel" />
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/passwordEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#00FFFFFF"
+                        app:textInputLayoutFocusedRectEnabled="false" />
+                </com.google.android.material.textfield.TextInputLayout>
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -205,24 +223,28 @@
                     android:text="Confirm Password"
                     android:textColor="#0E0E0E"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/confirmPasswordField"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <EditText
-                    android:id="@+id/confirmPasswordField"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/confirmPasswordTextLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
-                    android:backgroundTint="#BF936D"
-                    android:ems="10"
-                    android:inputType="textPassword"
-                    android:textColor="#0E0E0E"
+                    app:errorEnabled="true"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/confirmPasswordLabel" />
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/confirmPasswordEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#00FFFFFF"
+                        app:textInputLayoutFocusedRectEnabled="false" />
+                </com.google.android.material.textfield.TextInputLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -2,6 +2,7 @@ package com.example.e03_accesso;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -64,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
             Log.e("Cretentials", "Username or Password incorrect");
             return 1;
         } else {
+            feedbackText.setTextColor(Color.GREEN);
             feedbackText.setText("Ciao " + userDatabase[userID][0]);
         }
 
