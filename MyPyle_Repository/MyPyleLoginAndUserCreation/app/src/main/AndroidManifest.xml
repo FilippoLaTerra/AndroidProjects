@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyPyleLoginAndUserCreation">
         <activity
+            android:name=".MainMenu"
+            android:exported="false" />
+        <activity
             android:name=".LogInPage"
             android:exported="false" />
         <activity

@@ -6,35 +6,51 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/nameFileText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
+        android:textColor="@color/black"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="file_name" />
+
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        tools:layout_editor_absoluteX="80dp"
-        tools:layout_editor_absoluteY="240dp"
+        android:id="@+id/imageDisplay"
+        android:layout_width="270dp"
+        android:layout_height="270dp"
+        android:layout_marginTop="101dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameFileText"
         tools:srcCompat="@tools:sample/avatars" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/previousButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="34dp"
-        tools:layout_editor_absoluteY="636dp" />
+        android:layout_height="70dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="140dp"
+        android:onClick="changeImage"
+        android:text="Precedente"
+        app:icon="@android:drawable/ic_media_rew"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/nextButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="278dp"
-        tools:layout_editor_absoluteY="630dp" />
+        android:layout_height="70dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="140dp"
+        android:onClick="changeImage"
+        android:text="Successiva"
+        app:icon="@android:drawable/ic_media_ff"
+        app:iconGravity="end"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="174dp"
-        tools:layout_editor_absoluteY="80dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

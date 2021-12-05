@@ -12,12 +12,16 @@ public class StartPage extends AppCompatActivity {
 
     Button logInButton;
     Button signInButton;
+    Database database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_page);
+
         getSupportActionBar().hide();
+
+        database = new Database();
 
         logInButton = findViewById(R.id.logInButton);
         signInButton = findViewById(R.id.signUpButton);
@@ -28,12 +32,20 @@ public class StartPage extends AppCompatActivity {
         if (v.getId() == logInButton.getId()) {
             Log.i("Switch Activities", "starting Signup Page");
             Intent switchActivity = new Intent(this, LogInPage.class);
+            switchActivity.putExtra("database", database);
             startActivity(switchActivity);
         } else {
             Log.i("Switch Activities", "starting Login Page");
             Intent switchActivity = new Intent(this, SignUpPage.class);
+            switchActivity.putExtra("database", database);
             startActivity(switchActivity);
         }
 
+    }
+
+    @Override
+    protected void onNewIntent(final Intent intent) {
+        super.onNewIntent(intent);
+        this.setIntent(intent);
     }
 }

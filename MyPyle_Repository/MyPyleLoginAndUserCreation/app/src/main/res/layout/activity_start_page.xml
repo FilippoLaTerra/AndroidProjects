@@ -5,7 +5,7 @@
     android:id="@+id/logInAndSignUpPage"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F6F0E2"
+    android:background="@color/cream_background"
 
     tools:context=".StartPage">
 
@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:text="Digital home \nfor my documents"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textColor="#121212"
+        android:textColor="@color/lighter_black"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -41,7 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginBottom="10dp"
-            android:backgroundTint="#C58971"
+            android:backgroundTint="@color/gold_pink"
             android:onClick="onClick"
             android:text="Log In"
             android:textAllCaps="false"
@@ -52,7 +52,7 @@
             android:id="@+id/signUpButton"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:backgroundTint="#131313"
+            android:backgroundTint="@color/lighter_black"
             android:onClick="onClick"
             android:text="Sign Up"
             android:textAllCaps="false"

@@ -2,6 +2,7 @@ package com.example.mypyle_loginandusercreation;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,78 +12,94 @@ import android.widget.TextView;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.util.List;
+
 public class LogInPage extends AppCompatActivity {
 
-    TextInputLayout usernameTextInput;
-    TextInputEditText usernameTextInputEdit;
-    TextInputLayout passwordTextInput;
-    TextInputEditText passwordTextInputEdit;
-    Button loginButton;
-    String[][] userDatabase;
-    TextView feedbackText;
+    private TextInputLayout usernameTextInput;
+    private TextInputEditText usernameTextInputEdit;
+    private TextInputLayout passwordTextInput;
+    private TextInputEditText passwordTextInputEdit;
+    private Button loginButton;
+    private TextView feedbackText;
+    public Database database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in_page);
+        getSupportActionBar().hide();
+
         usernameTextInput = findViewById(R.id.usernameTextInput);
         usernameTextInputEdit = findViewById(R.id.usernameTextInputEdit);
         passwordTextInput = findViewById(R.id.passwordTextInput);
         passwordTextInputEdit = findViewById(R.id.passwordTextInputEdit);
         loginButton = findViewById(R.id.loginButton);
         feedbackText = findViewById(R.id.feedbackText);
-        userDatabase = new String[][]{
-                {"gianluca", "paperella"},
-                {"filippo", "password"},
-                {"giuseppe", "donnacumma"}
-        };
+
+        database = (Database) getIntent().getSerializableExtra("database");
+
     }
 
-    public int checkLogin(View v) {
+    public void checkLogin(View v) {
 
         feedbackText.setText("");
-        boolean emptyFlag = false;
-        if (isEmpty(usernameTextInputEdit)) {
-            usernameTextInput.setError("Il campo non può essere vuoto");
-            emptyFlag = true;
-        }
-        if(isEmpty(passwordTextInputEdit)){
-            passwordTextInput.setError("Il campo non può essere vuoto");
-            emptyFlag = true;
-        }
-        if(emptyFlag){
-            return 1;
-        }
 
-        String[] userCredentials = new String[]{usernameTextInputEdit.getText().toString(),
-                passwordTextInputEdit.getText().toString()};
+        if (areFieldEmpty() == false) {
 
-        int userID = checkCredentials(userCredentials);
+            String inputUsername = usernameTextInputEdit.getText().toString();
+            String inputPassword = passwordTextInputEdit.getText().toString();
 
-        if (userID < 0) {
-            passwordTextInput.setError("Username o Password errati");
-            Log.e("Cretentials", "Username or Password incorrect");
-            return 1;
-        } else {
-            feedbackText.setText("Ciao " + userDatabase[userID][0]);
+
+            User foundUser = checkCredentials(database, inputUsername, inputPassword);
+
+            if (foundUser.getUSER_ID() < 0) {
+                passwordTextInput.setError("Username o Password errati");
+                Log.e("Cretentials", "Username or Password incorrect");
+
+            } else {
+                feedbackText.setText("Ciao " + foundUser.firstName);
+
+                Log.i("Switch Activities", "starting mainMenu Page");
+                Intent switchActivity = new Intent(this, MainMenu.class);
+                startActivity(switchActivity);
+            }
         }
 
-        return 0;
     }
 
     private boolean isEmpty(TextInputEditText t) {
         return t.getText().toString().equals("");
     }
 
-    private int checkCredentials(String[] data) {
+    private User checkCredentials(Database database, String username, String password) {
 
-        for (int i = 0; i < userDatabase.length; i++) {
+        List<User> users = database.getUserDatabase();
 
-            if (data[0].equals(userDatabase[i][0]) && data[1].equals(userDatabase[i][1])) {
-                return i;
+        for (User user : users) {
+
+            if (user.firstName.equals(username) && user.password.equals(password)) {
+                return user;
             }
-
         }
-        return -1;
+
+        Log.e("User", "User not found, returning null User");
+        return new User();
+    }
+
+    private boolean areFieldEmpty(){
+        boolean emptyFlag = false;
+
+        if (isEmpty(usernameTextInputEdit)) {
+            usernameTextInput.setError("Il campo non può essere vuoto");
+            emptyFlag = true;
+        }
+
+        if (isEmpty(passwordTextInputEdit)) {
+            passwordTextInput.setError("Il campo non può essere vuoto");
+            emptyFlag = true;
+        }
+
+        return emptyFlag;
     }
 }
