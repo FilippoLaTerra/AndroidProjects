@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/casino_green"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="40dp"
+        android:text="Benvenuto al gioco dei DADI"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <TextView
+        android:id="@+id/roundsCounterText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="65dp"
+        android:layout_marginEnd="40dp"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="n° Round" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/roundsCounterText">
+
+        <ImageView
+            android:id="@+id/imageDado1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:rotationX="0"
+            app:srcCompat="@drawable/slot_7"
+            tools:layout_editor_absoluteX="5dp"
+            tools:layout_editor_absoluteY="141dp"
+            tools:srcCompat="@drawable/slot_7" />
+
+        <ImageView
+            android:id="@+id/imageDado2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/slot_7"
+            tools:layout_editor_absoluteX="141dp"
+            tools:layout_editor_absoluteY="141dp"
+            tools:srcCompat="@drawable/slot_7" />
+
+        <ImageView
+            android:id="@+id/imageDado3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/slot_7"
+            tools:layout_editor_absoluteX="278dp"
+            tools:layout_editor_absoluteY="141dp"
+            tools:srcCompat="@drawable/slot_7" />
+
+        <ImageView
+            android:id="@+id/imageDado4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/slot_7"
+            tools:layout_editor_absoluteX="278dp"
+            tools:layout_editor_absoluteY="141dp"
+            tools:srcCompat="@drawable/slot_7" />
+
+        <ImageView
+            android:id="@+id/imageDado5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/slot_7"
+            tools:layout_editor_absoluteX="278dp"
+            tools:layout_editor_absoluteY="141dp"
+            tools:srcCompat="@drawable/slot_7" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/numberOfCoinsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="65dp"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Coins: XXX" />
+
+    <Button
+        android:id="@+id/playButton"
+        android:layout_width="260dp"
+        android:layout_height="115dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginEnd="76dp"
+        android:layout_marginBottom="9dp"
+        android:backgroundTint="@color/wood_brown"
+        android:onClick="rigiocaClick"
+        android:text="Tira I dadi"
+        app:cornerRadius="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/replayButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/replayButton"
+        android:layout_width="260dp"
+        android:layout_height="115dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginEnd="76dp"
+        android:layout_marginBottom="36dp"
+        android:backgroundTint="@color/wood_brown"
+        android:onClick="ricomincia"
+        android:text="Ricomincia"
+        app:cornerRadius="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
