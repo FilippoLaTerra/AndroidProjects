@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.File;
+
 public class MainActivity extends AppCompatActivity {
 
     TextView nameFiletext;
@@ -22,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().hide();
 
         nameFiletext = findViewById(R.id.nameFileText);
         imageDisplay = findViewById(R.id.imageDisplay);
@@ -36,7 +39,11 @@ public class MainActivity extends AppCompatActivity {
                 R.drawable.strazz_approves,
         };
 
+
+
         imageDisplay.setImageResource(images[currentImage]);
+
+        nameFiletext.setText(images[currentImage]);
 
     }
 
@@ -44,20 +51,22 @@ public class MainActivity extends AppCompatActivity {
     public void changeImage(View v) {
 
         int buttonID = v.getId();
-
+        int newImage = 0;
 
         switch (buttonID) {
 
             case R.id.nextButton:
-                checkIndex(currentImage++);
-                imageDisplay.setImageResource(images[currentImage]);
+
+                currentImage = checkIndex(++currentImage);
                 break;
             case R.id.previousButton:
-                checkIndex(currentImage--);
-                imageDisplay.setImageResource(images[currentImage]);
+
+                currentImage = checkIndex(--currentImage);
                 break;
         }
 
+        imageDisplay.setImageResource(images[currentImage]);
+        nameFiletext.setText(images[currentImage]);
 
     }
 
