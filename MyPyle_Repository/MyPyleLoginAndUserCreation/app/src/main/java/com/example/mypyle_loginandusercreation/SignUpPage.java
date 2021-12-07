@@ -41,7 +41,7 @@ public class SignUpPage extends AppCompatActivity {
         layouts[3] = findViewById(R.id.passwordTextLayout);
         layouts[4] = findViewById(R.id.confirmPasswordTextLayout);
 
-        database = (Database) getIntent().getSerializableExtra("database");
+        database = database.getInstance();
 
     }
 

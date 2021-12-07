@@ -37,13 +37,16 @@ public class LogInPage extends AppCompatActivity {
         loginButton = findViewById(R.id.loginButton);
         feedbackText = findViewById(R.id.feedbackText);
 
-        database = (Database) getIntent().getSerializableExtra("database");
+        database = database.getInstance();
 
     }
 
     public void checkLogin(View v) {
 
         feedbackText.setText("");
+        usernameTextInput.setError("");
+        passwordTextInput.setError("");
+
 
         if (areFieldEmpty() == false) {
 
@@ -78,7 +81,7 @@ public class LogInPage extends AppCompatActivity {
 
         for (User user : users) {
 
-            if (user.firstName.equals(username) && user.password.equals(password)) {
+            if ((user.firstName).equals(username) && (user.password).equals(password)) {
                 return user;
             }
         }

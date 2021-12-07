@@ -21,7 +21,7 @@ public class StartPage extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
-        database = new Database();
+        database = database.getInstance();
 
         logInButton = findViewById(R.id.logInButton);
         signInButton = findViewById(R.id.signUpButton);
@@ -32,12 +32,10 @@ public class StartPage extends AppCompatActivity {
         if (v.getId() == logInButton.getId()) {
             Log.i("Switch Activities", "starting Signup Page");
             Intent switchActivity = new Intent(this, LogInPage.class);
-            switchActivity.putExtra("database", database);
             startActivity(switchActivity);
         } else {
             Log.i("Switch Activities", "starting Login Page");
             Intent switchActivity = new Intent(this, SignUpPage.class);
-            switchActivity.putExtra("database", database);
             startActivity(switchActivity);
         }
 
