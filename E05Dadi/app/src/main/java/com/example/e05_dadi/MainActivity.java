@@ -2,8 +2,10 @@ package com.example.e05_dadi;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.view.contentcapture.DataShareWriteAdapter;
 import android.widget.Button;
@@ -11,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().hide();
 
 
         numberOfCoinsText = findViewById(R.id.numberOfCoinsText);
@@ -87,9 +92,10 @@ public class MainActivity extends AppCompatActivity {
         valoreDado2 = tiraDado(imageDado2);
         valoreDado3 = tiraDado(imageDado3);
 
+
         if (valoreDado1 == valoreDado2 && valoreDado2 == valoreDado3) {
             monete += 50;
-            titleText.setText("HA VINTO MINNIE");
+            titleText.setText("TRIS!!!");
         } else if (valoreDado1 == valoreDado2 || valoreDado2 == valoreDado3 || valoreDado1 == valoreDado3) {
             monete += 10;
             titleText.setText("COPPIA!!!");
@@ -103,7 +109,11 @@ public class MainActivity extends AppCompatActivity {
     public int tiraDado(ImageView image) {
 
         int result = new Random().nextInt(5);
-        image.setImageResource(spriteDadi[result]);
+
+        int newImageSrc = spriteDadi[result];
+
+        giraDado(image, newImageSrc);
+
         return result + 1;
     }
 
@@ -112,5 +122,47 @@ public class MainActivity extends AppCompatActivity {
         numberOfCoinsText.setText("Monete:" + monete);
         roundsCounterText.setText(round + "° round");
     }
+
+    public void giraDado(ImageView image, int newImage) {
+
+
+        new CountDownTimer(225, 5) {
+
+            int rotazione = 0;
+
+            @Override
+            public void onTick(long millisUntilFinished) {
+                rotazione += 6;
+                image.setRotationY(rotazione);
+            }
+
+            @Override
+            public void onFinish() {
+                image.setRotationY(-90);
+                image.setImageResource(newImage);
+
+                new CountDownTimer(225, 5) {
+
+                    int rotazione = -90;
+
+                    @Override
+                    public void onTick(long millisUntilFinished) {
+                        rotazione += 6;
+                        image.setRotationY(rotazione);
+                    }
+
+                    @Override
+                    public void onFinish() {
+                        image.setRotationY(0);
+                    }
+                }.start();
+            }
+        }.start();
+
+
+
+
+    }
+
 
 }
