@@ -12,8 +12,8 @@ public class Database implements Serializable {
     private List<User> userDatabase;
     protected int lastIdUsed;
 
-    public static Database getInstance(){
-        if(database == null){
+    public static Database getInstance() {
+        if (database == null) {
             database = new Database();
         }
         return database;
@@ -24,20 +24,15 @@ public class Database implements Serializable {
         lastIdUsed = 0;
     }
 
-    public void addUserToDatabase(User user){
-
+    public void addUserToDatabase(User user) {
         userDatabase.add(user);
     }
 
-    public int getLastIdUsed() {
-        return lastIdUsed;
-    }
-
-    public List<User> getUserDatabase(){
+    public List<User> getUserDatabase() {
         return userDatabase;
     }
 
-    public int createID(){
+    public int createID() {
         this.lastIdUsed++;
         return lastIdUsed;
     }

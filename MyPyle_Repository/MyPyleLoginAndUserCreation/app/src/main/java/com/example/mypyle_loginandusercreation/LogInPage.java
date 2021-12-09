@@ -66,6 +66,7 @@ public class LogInPage extends AppCompatActivity {
                 Log.i("Switch Activities", "starting mainMenu Page");
                 Intent switchActivity = new Intent(this, MainMenu.class);
                 startActivity(switchActivity);
+                finish();
             }
         }
 

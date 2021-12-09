@@ -165,6 +165,7 @@
                         android:layout_height="wrap_content"
                         android:background="#00FFFFFF"
                         android:backgroundTint="@color/gold_pink"
+                        android:inputType="textWebEmailAddress"
                         android:textColor="@color/lighter_black"
                         app:textInputLayoutFocusedRectEnabled="false" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -200,7 +201,8 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:passwordToggleEnabled="true">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/passwordEditText"
@@ -208,6 +210,8 @@
                         android:layout_height="wrap_content"
                         android:background="#00FFFFFF"
                         android:backgroundTint="@color/gold_pink"
+                        android:inputType="textPassword"
+                        android:password="false"
                         android:textColor="@color/lighter_black"
                         app:textInputLayoutFocusedRectEnabled="false" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -243,7 +247,8 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:passwordToggleEnabled="false">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/confirmPasswordEditText"
@@ -251,6 +256,8 @@
                         android:layout_height="wrap_content"
                         android:background="#00FFFFFF"
                         android:backgroundTint="@color/gold_pink"
+                        android:inputType="textPassword"
+                        android:password="false"
                         android:textColor="@color/lighter_black"
                         app:textInputLayoutFocusedRectEnabled="false" />
                 </com.google.android.material.textfield.TextInputLayout>

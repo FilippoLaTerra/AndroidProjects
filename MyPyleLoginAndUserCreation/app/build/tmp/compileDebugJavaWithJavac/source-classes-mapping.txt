@@ -1,0 +1,8 @@
+com/example/mypyle_loginandusercreation/BuildConfig.java
+ com.example.mypyle_loginandusercreation.BuildConfig
+com/example/mypyle_loginandusercreation/LogInPage.java
+ com.example.mypyle_loginandusercreation.LogInPage
+com/example/mypyle_loginandusercreation/SignUpPage.java
+ com.example.mypyle_loginandusercreation.SignUpPage
+com/example/mypyle_loginandusercreation/StartPage.java
+ com.example.mypyle_loginandusercreation.StartPage

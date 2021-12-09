@@ -37,13 +37,10 @@ public class StartPage extends AppCompatActivity {
             Log.i("Switch Activities", "starting Login Page");
             Intent switchActivity = new Intent(this, SignUpPage.class);
             startActivity(switchActivity);
+            finish();
         }
 
     }
 
-    @Override
-    protected void onNewIntent(final Intent intent) {
-        super.onNewIntent(intent);
-        this.setIntent(intent);
-    }
+
 }

@@ -76,7 +76,8 @@
             android:backgroundTint="#673AB7"
             app:errorEnabled="true"
             app:hintEnabled="false"
-            app:passwordToggleEnabled="true">
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/material_on_background_emphasis_medium">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/passwordTextInputEdit"
@@ -84,7 +85,8 @@
                 android:layout_height="wrap_content"
                 android:background="#00FFFFFF"
                 android:backgroundTint="#BF936D"
-                android:password="true" />
+                android:inputType="textPassword"
+                android:password="false" />
         </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>

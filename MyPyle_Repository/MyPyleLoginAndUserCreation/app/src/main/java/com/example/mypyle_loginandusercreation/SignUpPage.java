@@ -72,6 +72,7 @@ public class SignUpPage extends AppCompatActivity {
                 Log.i("Switch Activities", "starting statPage");
                 Intent switchActivity = new Intent(this, StartPage.class);
                 startActivity(switchActivity);
+                finish();
 
 
             } else {
