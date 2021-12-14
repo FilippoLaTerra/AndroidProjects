@@ -28,6 +28,7 @@
             app:layout_constraintVertical_bias="0.509" />
 
         <ImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/userPicture"
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -38,9 +39,18 @@
             app:srcCompat="@drawable/blank_user"
             tools:srcCompat="@drawable/blank_user" />
 
+        <ImageView
+            android:id="@+id/menuButtonImageView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:srcCompat="@drawable/ic_baseline_menu_24"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="0dp" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
+        android:id="@+id/buttonsLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
@@ -53,6 +63,7 @@
         app:layout_constraintTop_toBottomOf="@+id/topBarLayout">
 
         <LinearLayout
+            android:id="@+id/pocketButtonLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
@@ -76,6 +87,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/propertyButtonLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
@@ -99,6 +111,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/personalButtonLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
@@ -122,6 +135,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/unsortedButtonLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
@@ -145,5 +159,128 @@
         </LinearLayout>
 
     </LinearLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/pinboard1"
+        android:layout_width="0dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="35dp"
+        app:boxBackgroundColor="#95FFFFFF"
+        app:boxBackgroundMode="outline"
+        app:boxCollapsedPaddingTop="0dp"
+        app:boxCornerRadiusBottomEnd="25dp"
+        app:boxCornerRadiusBottomStart="25dp"
+        app:boxCornerRadiusTopEnd="25dp"
+        app:boxCornerRadiusTopStart="25dp"
+        app:boxStrokeColor="@color/lighter_black"
+        app:boxStrokeWidth="0dp"
+        app:hintTextColor="@color/lighter_black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonsLayout">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/pinboard1EditText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:fontFamily="cursive"
+            android:textAlignment="center"
+            android:textColor="@color/lighter_black"
+            android:textSize="34sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/pinboard2"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="136dp"
+        android:layout_marginEnd="35dp"
+        app:boxBackgroundColor="#95FFFFFF"
+        app:boxBackgroundMode="outline"
+        app:boxCollapsedPaddingTop="0dp"
+        app:boxCornerRadiusBottomEnd="25dp"
+        app:boxCornerRadiusBottomStart="25dp"
+        app:boxCornerRadiusTopEnd="25dp"
+        app:boxCornerRadiusTopStart="25dp"
+        app:boxStrokeColor="@color/lighter_black"
+        app:boxStrokeWidth="0dp"
+        app:hintTextColor="@color/lighter_black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonsLayout">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/pinboard2EditText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:fontFamily="cursive"
+            android:textAlignment="center"
+            android:textColor="@color/lighter_black"
+            android:textSize="34sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/footerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/cameraImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="19dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="19dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@android:drawable/ic_menu_camera" />
+
+        <ImageView
+            android:id="@+id/searchImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="19dp"
+            android:layout_marginEnd="107dp"
+            android:layout_marginBottom="19dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/cameraImageView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@android:drawable/ic_menu_search" />
+
+        <ImageView
+            android:id="@+id/shopImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="19dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="19dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@android:drawable/ic_menu_directions" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
