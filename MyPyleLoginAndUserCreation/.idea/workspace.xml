@@ -13,13 +13,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="af098dea-a158-4e5c-a886-31888ae1e88a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../E07SlotMachine/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../E05Dadi/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../E05Dadi/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../E05Dadi/app/src/main/java/com/example/e05_dadi/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../E05Dadi/app/src/main/java/com/example/e05_dadi/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../E05Dadi/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../E05Dadi/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../E06imageSwitcher/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../E06imageSwitcher/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../E07SlotMachine/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../E07SlotMachine/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../E07SlotMachine/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../E07SlotMachine/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../E08CreaColore/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../E08CreaColore/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../E08CreaColore/app/src/main/java/com/example/e08_creacolore/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../E08CreaColore/app/src/main/java/com/example/e08_creacolore/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../E08CreaColore/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../E08CreaColore/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../E09-OnClick/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../E09-OnClick/.idea/gradle.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +34,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="21iowoPLrMnkYXnPgBESfNzMf3r" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -115,5 +114,16 @@
       <updated>1638433512103</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
     SeekBar seekBar2;
     SeekBar seekBar3;
 
-    Button createColorButton;
     Button toRgbButton;
     Button toVhsButton;
 
@@ -53,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
         seekBar2 = findViewById(R.id.seekBar2);
         seekBar3 = findViewById(R.id.seekBar3);
 
-        createColorButton = findViewById(R.id.createColorButton);
         toRgbButton = findViewById(R.id.toRgbButton);
         toVhsButton = findViewById(R.id.toVhsButton);
 
@@ -66,9 +64,62 @@ public class MainActivity extends AppCompatActivity {
         value3.setText("" + seekBar2.getProgress());
 
 
+        seekBar1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                createColor();
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+        seekBar2.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                createColor();
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+
+        });
+
+        seekBar3.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                createColor();
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+
     }
 
-    public void createColor(View v) {
+    public void createColor() {
 
         int getValue1 = seekBar1.getProgress();
         int getValue2 = seekBar2.getProgress();
@@ -81,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
         if (isVhs) {
             colorView.setBackgroundColor(Color.HSVToColor(new float[]{getValue1, getValue2 / 100f, getValue3 / 100f}));
         } else {
-            colorView.setBackgroundColor(Color.argb(255, getValue1, getValue2 , getValue3 ));
+            colorView.setBackgroundColor(Color.argb(255, getValue1, getValue2, getValue3));
         }
 
 

@@ -139,19 +139,6 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/createColorButton"
-        android:layout_width="119dp"
-        android:layout_height="64dp"
-        android:layout_marginStart="146dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="146dp"
-        android:onClick="createColor"
-        android:text="CREATE"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/value3Layout" />
-
-    <Button
         android:id="@+id/toRgbButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
