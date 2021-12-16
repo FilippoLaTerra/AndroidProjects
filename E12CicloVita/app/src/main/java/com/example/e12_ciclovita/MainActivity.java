@@ -11,6 +11,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
     Button changeActivityButton;
+    Button gotoSiteButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,16 +21,36 @@ public class MainActivity extends AppCompatActivity {
         Log.e("App status", "application created");
 
         changeActivityButton = findViewById(R.id.changeActivityButton);
+        gotoSiteButton = findViewById(R.id.gotoSiteButton);
 
-        changeActivityButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent switchActivity = new Intent(getApplicationContext(), MainActivity2.class);
-                startActivity(switchActivity);
-            }
-        });
+        changeActivityButton.setOnClickListener(gestore);
+        gotoSiteButton.setOnClickListener(gestore);
 
     }
+
+    private View.OnClickListener gestore = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            int buttonId = v.getId();
+
+            Intent switchActivity;
+
+            switch (buttonId) {
+
+                case R.id.changeActivityButton:
+                    switchActivity = new Intent(getApplicationContext(), MainActivity2.class);
+                    startActivity(switchActivity);
+
+                    break;
+
+                case R.id.gotoSiteButton:
+                    switchActivity = new Intent(getApplicationContext(), MainActivity3.class);
+                    startActivity(switchActivity);
+                    break;
+            }
+        }
+    };
+
 
     @Override
     protected void onStart() {
