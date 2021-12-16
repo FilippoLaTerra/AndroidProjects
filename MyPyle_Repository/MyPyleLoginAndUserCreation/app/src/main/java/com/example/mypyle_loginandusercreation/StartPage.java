@@ -30,14 +30,14 @@ public class StartPage extends AppCompatActivity {
     public void onClick(View v) {
 
         if (v.getId() == logInButton.getId()) {
-            Log.i("Switch Activities", "starting Signup Page");
+            Log.i("Switch Activities", "starting Login Page");
             Intent switchActivity = new Intent(this, LogInPage.class);
             startActivity(switchActivity);
         } else {
-            Log.i("Switch Activities", "starting Login Page");
+            Log.i("Switch Activities", "starting Signup Page");
             Intent switchActivity = new Intent(this, SignUpPage.class);
             startActivity(switchActivity);
-            finish();
+
         }
 
     }

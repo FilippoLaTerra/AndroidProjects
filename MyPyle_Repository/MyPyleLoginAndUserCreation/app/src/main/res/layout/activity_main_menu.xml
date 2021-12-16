@@ -27,25 +27,26 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.509" />
 
-        <ImageView
-            xmlns:app="http://schemas.android.com/apk/res-auto"
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/userPicture"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginEnd="50dp"
+            android:src="@drawable/blank_user"
             app:layout_constraintBottom_toBottomOf="parent"
+
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/blank_user"
-            tools:srcCompat="@drawable/blank_user" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/menuButtonImageView"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            app:srcCompat="@drawable/ic_baseline_menu_24"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="0dp" />
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_menu_24" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
