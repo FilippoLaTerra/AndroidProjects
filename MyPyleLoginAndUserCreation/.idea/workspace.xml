@@ -13,11 +13,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="af098dea-a158-4e5c-a886-31888ae1e88a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../E15PassaggioConfigurazioni/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../E15PassaggioConfigurazioni/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../E15PassaggioConfigurazioni/app/src/main/java/com/example/e15_passaggioconfigurazioni/Settings.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../E15PassaggioConfigurazioni/app/src/main/res/layout/activity_settings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../E08CreaColore/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../E08CreaColore/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../E08CreaColore/app/src/main/java/com/example/e08_creacolore/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../E08CreaColore/app/src/main/java/com/example/e08_creacolore/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../E08CreaColore/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../E08CreaColore/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../E09-OnClick/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../E09-OnClick/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../E14StatoActivity/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../E14StatoActivity/.idea/gradle.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +43,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../MyPyle_Repository/MyPyleLoginAndUserCreation" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
@@ -125,5 +126,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
