@@ -9,42 +9,39 @@
 
     <ImageView
         android:id="@+id/imageViewPiantina"
-        android:layout_width="276dp"
-        android:layout_height="396dp"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="150dp"
-        android:layout_marginEnd="55dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.48"
+        android:layout_width="239dp"
+        android:layout_height="282dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="6dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewSettings"
         app:srcCompat="@drawable/pianta_hydrated" />
 
     <ProgressBar
         android:id="@+id/progressBarAcquaBevuta"
         style="@android:style/Widget.ProgressBar.Horizontal"
-        android:layout_width="200dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="233dp"
+        android:layout_height="77dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="52dp"
         android:indeterminate="false"
         android:max="1000"
         android:progress="500"
         android:progressTint="#03A9F4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewPiantina" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonBevi" />
 
     <Button
         android:id="@+id/buttonBevi"
-        android:layout_width="104dp"
-        android:layout_height="86dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="133dp"
+        android:layout_height="92dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="54dp"
         android:backgroundTint="#00BCD4"
         android:text="BEVI"
         app:cornerRadius="50dp"
-        app:layout_constraintStart_toEndOf="@+id/progressBarAcquaBevuta"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewPiantina" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
         android:id="@+id/imageViewSettings"
@@ -58,34 +55,28 @@
 
     <TextView
         android:id="@+id/textViewMessaggi"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="17dp"
+        android:layout_width="367dp"
+        android:layout_height="128dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="76dp"
         android:fontFamily="casual"
         android:textAlignment="center"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/imageViewPiantina"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageViewPiantina"
+        app:layout_constraintTop_toTopOf="parent"
         tools:text="Sono la piantina, e sarà colpa tua se muoio" />
 
     <TextView
         android:id="@+id/textViewNomepianta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="161dp"
-        android:layout_marginEnd="162dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="90dp"
+        android:layout_marginBottom="15dp"
         android:fontFamily="casual"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/progressBarAcquaBevuta"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:text="NOMEPIANTA" />
 
