@@ -24,9 +24,10 @@
         android:layout_marginStart="88dp"
         android:layout_marginTop="80dp"
         android:layout_marginEnd="88dp"
-        android:fontFamily="casual"
+        android:fontFamily="@font/paytone_one"
         android:padding="10dp"
         android:text="IMPOSTAZIONI"
+        android:textColor="@color/white"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -51,7 +52,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/rinominaPiantina"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
                 <EditText
                     android:id="@+id/editTextNomePiantina"
@@ -90,7 +91,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/nomeUtente"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:paddingTop="10dp">
 
                 <TextView
@@ -108,7 +109,6 @@
                     android:layout_width="330dp"
                     android:layout_height="46dp"
                     android:layout_marginStart="16dp"
-                    android:layout_marginBottom="12dp"
                     android:gravity="bottom"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

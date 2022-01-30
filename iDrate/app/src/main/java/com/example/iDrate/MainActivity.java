@@ -7,6 +7,7 @@ import androidx.core.app.NotificationManagerCompat;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -99,7 +100,15 @@ public class MainActivity extends AppCompatActivity {
         textViewNomepianta = findViewById(R.id.textViewNomepianta);
 
         progressBarAcquaBevuta.setMax(dailyWaterQuoteInMilliliters);
-        progressBarAcquaBevuta.setProgress(dailyWaterQuoteInMilliliters);
+
+
+        try {
+            int savedProgress = this.getIntent().getExtras().getInt("waterDrank");
+            progressBarAcquaBevuta.setProgress(savedProgress);
+        }catch (Exception e){
+            progressBarAcquaBevuta.setProgress(dailyWaterQuoteInMilliliters);
+        }
+
         textViewNomepianta.setText(plantName);
 
         handler.postDelayed(waterDrainageFunction, 1);
@@ -174,7 +183,7 @@ public class MainActivity extends AppCompatActivity {
         String[] randomMsg = new String[]{  "Tienimi in salute tenendoti in salute!",
                                             "Ricordati di bere!",
                                             "Dovresti bere almeno " + (double) dailyWaterQuoteInMilliliters/1000 + " Litri al giorno",
-                                            "Hai già bevuto " + currentUser.waterDrankInCentiliters + "!"};
+                                            "Hai già bevuto " + currentUser.waterDrankInCentiliters + " Centilitri d'acqua!"};
 
 
         String[] needToDrinkMsg = new String[]{ "Non stai bevendo da un poco, dovresti reidratarti",
@@ -247,11 +256,18 @@ public class MainActivity extends AppCompatActivity {
 
     protected NotificationCompat.Builder newNotification(String title, String text, String channelID) {
 
+        Intent notificationIntent = new Intent(getApplicationContext(), MainActivity.class);
+        notificationIntent.putExtra("waterDrank", progressBarAcquaBevuta.getProgress());
+        PendingIntent returnToApp =     PendingIntent.getActivity(getApplicationContext(),
+                                        0, notificationIntent,
+                                        PendingIntent.FLAG_CANCEL_CURRENT);
+
         NotificationCompat.Builder notification = new NotificationCompat.Builder(this, channelID)
                 .setSmallIcon(R.drawable.ic_baseline_bubble_chart_24)
                 .setContentTitle(title)
                 .setContentText(text)
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setContentIntent(returnToApp);
 
         return notification;
     }
