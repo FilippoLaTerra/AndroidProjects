@@ -13,7 +13,8 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference("TestNode");
 
 
     @Override
@@ -24,20 +25,17 @@ public class MainActivity extends AppCompatActivity {
         UserHelperClass testUser = new UserHelperClass(0, "NomeUtente", 60, 18);
 
 
+        testUser.addToTodayWater(20);
+        testUser.addToTodayWater(20);
+        testUser.addToTodayWater(20);
 
-        testUser.addNewDailyLog();
-
-        SingleLog testLog = new SingleLog(14);
-
-        testUser.updateDailyLog(testLog);
-
-        Map<String, Object> users = new HashMap<>();
-        users.put(testUser.getID(), testUser);
+        testUser.startNewDay();
 
 
+        myRef.child(testUser.Username).setValue(testUser);
 
-        db.collection("users")
-                    .add(users);
+
+
 
 
 

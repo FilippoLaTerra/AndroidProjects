@@ -1,58 +1,60 @@
 package com.example.firebasetests;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.ArrayList;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 
 public class UserHelperClass {
 
-    private int ID;
-    private String Username;
-    private int weightInKilograms;
-    private int age;
-    private String currentPlantName;
+    public int ID;
+    public String Username;
+    public int weightInKilograms;
+    public int age;
+    public String currentPlantName;
 
-    private int waterToDrinkInCentiliters;
-    private int lifetimeWaterDrankInLiters;
+    public int waterToDrinkInCentiliters;
+    public int lifetimeWaterDrankInLiters;
+    public int waterDrankTodayInCentiliters;
 
-    public HashMap<String, DailyLog> userLogs;
+    public HashMap<String, String> waterInaDayLogs;
 
-    public UserHelperClass(int ID, String username, int weight, int age)  {
-        Username = username;
+    public UserHelperClass(int ID, String username, int weight, int age) {
+        this.Username = username;
         this.ID = ID;
         this.weightInKilograms = weight;
         this.age = age;
+        this.currentPlantName = "ermenegilda";
 
-        waterToDrinkInCentiliters = 500;
-        lifetimeWaterDrankInLiters = 0;
+        this.waterToDrinkInCentiliters = 500;
+        this.lifetimeWaterDrankInLiters = 0;
 
-        userLogs = new HashMap<>();
+        this.waterInaDayLogs = new HashMap<>();
     }
 
-    public void addNewDailyLog(){
+    public void startNewDay(){
 
-        DailyLog todayLog = new DailyLog();
-
-        userLogs.put(todayLog.getDateString(), todayLog);
-
-    }
-
-    public void updateDailyLog(SingleLog log){
-
-        userLogs.get("31-01-2022").addLog(log);
+        this.waterInaDayLogs.put(getDateToString(), Integer.toString(waterDrankTodayInCentiliters));
+        this.waterDrankTodayInCentiliters = 0;
 
     }
 
-
-
-
-
-    public String getID() {
-        return "" + ID;
+    public void addToTodayWater(int centilitersDrank){
+        this.waterDrankTodayInCentiliters += centilitersDrank;
     }
 
+
+    public String getDateToString(){
+
+        Date today = Calendar.getInstance().getTime();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+        String date = formatter.format(today);
+        return date;
+
+    }
 
 
 }
+
+
