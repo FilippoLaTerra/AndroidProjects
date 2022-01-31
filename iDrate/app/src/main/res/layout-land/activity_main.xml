@@ -7,6 +7,20 @@
     android:background="#009688"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/textViewAppName2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="236dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/paytone_one"
+        android:text="iDrate"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="34sp"
+        app:layout_constraintStart_toEndOf="@+id/imageViewSettings"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/imageViewPiantina"
         android:layout_width="239dp"
@@ -57,8 +71,8 @@
         android:id="@+id/textViewMessaggi"
         android:layout_width="367dp"
         android:layout_height="128dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="80dp"
         android:fontFamily="casual"
         android:textAlignment="center"
         android:textSize="20sp"

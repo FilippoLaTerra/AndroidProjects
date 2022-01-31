@@ -1,0 +1,14 @@
+com/example/applicazioneesamezabot/BuildConfig.java
+ com.example.applicazioneesamezabot.BuildConfig
+com/example/applicazioneesamezabot/User.java
+ com.example.applicazioneesamezabot.User
+com/example/applicazioneesamezabot/SelezionaAcquaDaBere.java
+ com.example.applicazioneesamezabot.SelezionaAcquaDaBere
+com/example/applicazioneesamezabot/Settings.java
+ com.example.applicazioneesamezabot.Settings
+ com.example.applicazioneesamezabot.Settings$1
+com/example/applicazioneesamezabot/MainActivity.java
+ com.example.applicazioneesamezabot.MainActivity
+ com.example.applicazioneesamezabot.MainActivity$1
+ com.example.applicazioneesamezabot.MainActivity$2
+ com.example.applicazioneesamezabot.MainActivity$3
