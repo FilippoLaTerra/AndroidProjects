@@ -4,28 +4,27 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class SingleLog extends MonthlyLog {
+public class SingleLog {
 
-    private Date logTime;
+    final Date LOG_TIME = Calendar.getInstance().getTime();
     private int waterDrankInCentiliters;
-    protected Date currentDate;
     protected String day;
     protected String month;
     protected String year;
 
     public SingleLog(int waterDrankInCentiliters) {
-        this.logTime = Calendar.getInstance().getTime();
-        this.currentDate = Calendar.getInstance().getTime();
-        this.day = new SimpleDateFormat("dd").format(currentDate);
-        this.month = new SimpleDateFormat("mm").format(currentDate);
-        this.year = new SimpleDateFormat("yyyy").format(currentDate);
+
+        this.day = new SimpleDateFormat("dd").format(LOG_TIME);
+        this.month = new SimpleDateFormat("mm").format(LOG_TIME);
+        this.year = new SimpleDateFormat("yyyy").format(LOG_TIME);
+
         this.waterDrankInCentiliters = waterDrankInCentiliters;
     }
 
     @Override
     public String toString() {
         return "DailyLog{" +
-                "logTime=" + logTime +
+                "logTime=" + LOG_TIME +
                 ", waterDrankInCentiliters=" + waterDrankInCentiliters +
                 '}';
     }

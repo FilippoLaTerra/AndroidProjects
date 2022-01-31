@@ -1,6 +1,10 @@
 package com.example.firebasetests;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class UserHelperClass {
 
@@ -13,7 +17,7 @@ public class UserHelperClass {
     private int waterToDrinkInCentiliters;
     private int lifetimeWaterDrankInLiters;
 
-    public ArrayList<DailyLog> userLogs;
+    public HashMap<String, DailyLog> userLogs;
 
     public UserHelperClass(int ID, String username, int weight, int age)  {
         Username = username;
@@ -24,15 +28,29 @@ public class UserHelperClass {
         waterToDrinkInCentiliters = 500;
         lifetimeWaterDrankInLiters = 0;
 
-        userLogs = new ArrayList<DailyLog>();
+        userLogs = new HashMap<>();
     }
 
-    public String getUsername() {
-        return Username;
+    public void addNewDailyLog(){
+
+        DailyLog todayLog = new DailyLog();
+
+        userLogs.put(todayLog.getDateString(), todayLog);
+
     }
 
-    public int getID() {
-        return ID;
+    public void updateDailyLog(SingleLog log){
+
+        userLogs.get("31-01-2022").addLog(log);
+
+    }
+
+
+
+
+
+    public String getID() {
+        return "" + ID;
     }
 
 

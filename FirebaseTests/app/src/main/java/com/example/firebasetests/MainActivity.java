@@ -6,11 +6,14 @@ import android.os.Bundle;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference("TestNode");
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
 
     @Override
@@ -20,15 +23,22 @@ public class MainActivity extends AppCompatActivity {
 
         UserHelperClass testUser = new UserHelperClass(0, "NomeUtente", 60, 18);
 
-        myRef.child(testUser.getUsername()).setValue(testUser);
 
-        SingleLog testLog = new SingleLog(20);
-        DailyLog tesDailyLog = new DailyLog();
 
-        testUser.userLogs.add(tesDailyLog);
-        testUser.userLogs.get(0).addLog(testLog);
+        testUser.addNewDailyLog();
 
-        myRef.child(testUser.getUsername()).setValue(testUser);
+        SingleLog testLog = new SingleLog(14);
+
+        testUser.updateDailyLog(testLog);
+
+        Map<String, Object> users = new HashMap<>();
+        users.put(testUser.getID(), testUser);
+
+
+
+        db.collection("users")
+                    .add(users);
+
 
 
     }
