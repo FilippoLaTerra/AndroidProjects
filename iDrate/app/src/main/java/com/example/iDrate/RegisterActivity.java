@@ -68,8 +68,7 @@ public class RegisterActivity extends AppCompatActivity {
                 else {
                     registerUser(txt_email, txt_password);
                     String UID = authenticator.getCurrentUser().getUid();
-                    String email = authenticator.getCurrentUser().getEmail();
-                    createUserDatabase(UID, txt_username, email, Integer.parseInt(txt_peso), Integer.parseInt(txt_eta));
+                    createUserDatabase(UID, txt_username, Integer.parseInt(txt_peso), Integer.parseInt(txt_eta));
 
                     Intent switchToStartingPage = new Intent(getApplicationContext(), StartingPageActivity.class);
                     startActivity(switchToStartingPage);
@@ -96,9 +95,9 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
-    private void createUserDatabase(String UID, String username, String email, int peso, int eta){
+    private void createUserDatabase(String UID, String username, int peso, int eta){
 
-        UserHelperClass databaseUser = new UserHelperClass(UID, username, email, peso, eta);
+        UserHelperClass databaseUser = new UserHelperClass(UID, username, peso, eta);
 
         rootNode = FirebaseDatabase.getInstance();
         reference = rootNode.getReference("Users");

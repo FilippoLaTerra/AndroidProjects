@@ -10,7 +10,6 @@ public class UserHelperClass {
 
     public String UID;
     public String username;
-    public String email;
     public int weightInKilograms;
     public int age;
     public String currentPlantName;
@@ -21,7 +20,11 @@ public class UserHelperClass {
 
     public HashMap<String, String> waterInaDayLogs;
 
-    public UserHelperClass(String UID, String username, String email, int weight, int age) {
+    public UserHelperClass(){
+
+    }
+
+    public UserHelperClass(String UID, String username, int weight, int age) {
         this.username = username;
         this.UID = UID;
         this.weightInKilograms = weight;

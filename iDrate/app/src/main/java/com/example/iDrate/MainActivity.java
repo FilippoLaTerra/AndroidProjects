@@ -26,6 +26,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
@@ -44,9 +45,9 @@ public class MainActivity extends AppCompatActivity {
     protected FirebaseAuth authenticator = FirebaseAuth.getInstance();
 
     FirebaseDatabase rootNode = FirebaseDatabase.getInstance();
-    DatabaseReference reference;
+    DatabaseReference reference = rootNode.getReference("Users");
 
-    protected UserHelperClass currentUser;
+    UserHelperClass currentUser;
     protected String plantName;
 
     protected int dailyWaterQuoteInMilliliters;
@@ -104,9 +105,23 @@ public class MainActivity extends AppCompatActivity {
 
         createNotificationChannel();
 
-        getCurrentUser();
+        reference.child( authenticator.getCurrentUser().getUid() ).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+
+                currentUser = dataSnapshot.getValue(UserHelperClass.class);
 
 
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+
+        });
 
         imageViewPiantina = findViewById(R.id.imageViewPiantina);
         imageViewSettings = findViewById(R.id.imageViewSettings);
@@ -136,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent switchToSettings = new Intent(getApplicationContext(), Settings.class);
-                switchToSettings.putExtra("email", currentUser.email);
+                switchToSettings.putExtra("email", authenticator.getCurrentUser().getEmail());
                 switchToSettings.putExtra("waterDrank", currentUser.waterDrankTodayInCentiliters/100);
                 startActivityForResult(switchToSettings, ACTIVITY_ID);
             }
@@ -288,32 +303,6 @@ public class MainActivity extends AppCompatActivity {
                 .setContentIntent(returnToApp);
 
         return notification;
-    }
-
-    protected void getCurrentUser(){
-
-        reference = rootNode.getReference(authenticator.getCurrentUser().getUid());
-
-        reference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                    //crea un array dove salvare i dati come stringa
-                for ( DataSnapshot childData : dataSnapshot.getChildren() ) {
-                        //assegna le variabili
-                }
-                //crea un UserHelperClass coon le variabili date e salvalo
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-
-        });
-
     }
 
     @Override
