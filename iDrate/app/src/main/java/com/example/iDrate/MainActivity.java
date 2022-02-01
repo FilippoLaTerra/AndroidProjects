@@ -18,26 +18,38 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-    private String plantName = "ERMENEGILDA";
+
     private static int ACTIVITY_ID = 1;
 
-    private User currentUser = new User("Mariottide@gmail", 22, 70);
-
-    private final int dailyWaterQuoteInMilliliters = (int) (currentUser.waterToDrinkInLiters * 1000);
-
-    ImageView imageViewPiantina;
-    ImageView imageViewSettings;
+    ImageView imageViewPiantina, imageViewSettings;
 
     Button buttonBevi;
 
     ProgressBar progressBarAcquaBevuta;
 
-    TextView textViewMessaggi;
-    TextView textViewNomepianta;
+    TextView textViewMessaggi, textViewNomepianta;
+
+    protected FirebaseAuth authenticator = FirebaseAuth.getInstance();
+
+    FirebaseDatabase rootNode = FirebaseDatabase.getInstance();
+    DatabaseReference reference;
+
+    protected UserHelperClass currentUser;
+    protected String plantName;
+
+    protected int dailyWaterQuoteInMilliliters;
 
     private Handler handler = new Handler();
     private Runnable waterDrainageFunction = new Runnable() {
@@ -92,6 +104,10 @@ public class MainActivity extends AppCompatActivity {
 
         createNotificationChannel();
 
+        getCurrentUser();
+
+
+
         imageViewPiantina = findViewById(R.id.imageViewPiantina);
         imageViewSettings = findViewById(R.id.imageViewSettings);
         buttonBevi = findViewById(R.id.buttonBevi);
@@ -120,8 +136,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent switchToSettings = new Intent(getApplicationContext(), Settings.class);
-                switchToSettings.putExtra("email", currentUser.getEmail());
-                switchToSettings.putExtra("waterDrank", currentUser.waterDrankInCentiliters/100);
+                switchToSettings.putExtra("email", currentUser.email);
+                switchToSettings.putExtra("waterDrank", currentUser.waterDrankTodayInCentiliters/100);
                 startActivityForResult(switchToSettings, ACTIVITY_ID);
             }
         });
@@ -183,12 +199,14 @@ public class MainActivity extends AppCompatActivity {
         String[] randomMsg = new String[]{  "Tienimi in salute tenendoti in salute!",
                                             "Ricordati di bere!",
                                             "Dovresti bere almeno " + (double) dailyWaterQuoteInMilliliters/1000 + " Litri al giorno",
-                                            "Hai già bevuto " + currentUser.waterDrankInCentiliters + " Centilitri d'acqua!"};
+                                            //"Hai già bevuto " + currentUser.waterDrankTodayInCentiliters + " Centilitri d'acqua oggi!"
+                                            };
 
 
         String[] needToDrinkMsg = new String[]{ "Non stai bevendo da un poco, dovresti reidratarti",
                                                 "Non hai sete? Non bevi da un po'",
-                                                "Dovresti bere, stare tanto senza bere non ti fa bene"};
+                                                "Dovresti bere, stare tanto senza bere non ti fa bene"
+                                                };
 
         String[] dehydratedMsg = new String[]{  "Sei disidratato! Dovresti bere il prima possibile",
                                                 "Lo sai che la disidatrazione può causare mal di testa? e morte?",
@@ -231,7 +249,7 @@ public class MainActivity extends AppCompatActivity {
 
 
             progressBarAcquaBevuta.setProgress(currentWater + waterDrank);
-            currentUser.waterDrankInCentiliters+= waterDrank/10;
+            currentUser.waterDrankTodayInCentiliters+= waterDrank/10;
 
         }
     }
@@ -272,6 +290,32 @@ public class MainActivity extends AppCompatActivity {
         return notification;
     }
 
+    protected void getCurrentUser(){
+
+        reference = rootNode.getReference(authenticator.getCurrentUser().getUid());
+
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                    //crea un array dove salvare i dati come stringa
+                for ( DataSnapshot childData : dataSnapshot.getChildren() ) {
+                        //assegna le variabili
+                }
+                //crea un UserHelperClass coon le variabili date e salvalo
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+
+        });
+
+    }
+
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
@@ -288,5 +332,6 @@ public class MainActivity extends AppCompatActivity {
 
         imageViewPiantina.setImageResource(imageSrc);
     }
+
 
 }

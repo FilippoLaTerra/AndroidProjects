@@ -1,4 +1,4 @@
-package com.example.firebasetests;
+package com.example.iDrate;
 
 
 import java.text.SimpleDateFormat;
@@ -8,7 +8,7 @@ import java.util.HashMap;
 
 public class UserHelperClass {
 
-    public int UID;
+    public String UID;
     public String username;
     public String email;
     public int weightInKilograms;
@@ -21,14 +21,15 @@ public class UserHelperClass {
 
     public HashMap<String, String> waterInaDayLogs;
 
-    public UserHelperClass(int ID, String username, String email, int weight, int age) {
+    public UserHelperClass(String UID, String username, String email, int weight, int age) {
         this.username = username;
-        this.UID = ID;
+        this.UID = UID;
         this.weightInKilograms = weight;
         this.age = age;
         this.currentPlantName = "ermenegilda";
 
-        this.waterToDrinkInCentiliters = 500;
+        this.waterToDrinkInCentiliters = calculateWater();
+        startNewDay();
         this.lifetimeWaterDrankInLiters = 0;
 
         this.waterInaDayLogs = new HashMap<>();
@@ -36,7 +37,12 @@ public class UserHelperClass {
 
     public void startNewDay(){
 
-        this.waterInaDayLogs.put(getDateToString(), Integer.toString(waterDrankTodayInCentiliters));
+        try{
+            this.waterInaDayLogs.put(getDateToString(), Integer.toString(waterDrankTodayInCentiliters));
+        } catch(Exception e) {
+
+        }
+
         this.waterDrankTodayInCentiliters = 0;
 
     }
@@ -45,6 +51,20 @@ public class UserHelperClass {
         this.waterDrankTodayInCentiliters += centilitersDrank;
     }
 
+    private int calculateWater() {
+
+        waterToDrinkInCentiliters = (int) (weightInKilograms / 2289.2);
+
+        if (age <=10) {
+            waterToDrinkInCentiliters *= .8;
+        } else if (age > 10 && age <= 15){
+            waterToDrinkInCentiliters *= .9;
+        } else if (age > 15 && age <= 19){
+            waterToDrinkInCentiliters *= .95;
+        }
+
+        return waterToDrinkInCentiliters;
+    }
 
     public String getDateToString(){
 
