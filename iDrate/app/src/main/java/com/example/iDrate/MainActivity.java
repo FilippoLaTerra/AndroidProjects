@@ -26,7 +26,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
@@ -101,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
 
         createNotificationChannel();
 
+
         imageViewPiantina = findViewById(R.id.imageViewPiantina);
         imageViewSettings = findViewById(R.id.imageViewSettings);
         buttonBevi = findViewById(R.id.buttonBevi);
@@ -115,6 +119,7 @@ public class MainActivity extends AppCompatActivity {
                 // whenever data at this location is updated.
                 currentUser = dataSnapshot.getValue(UserHelperClass.class);
                 updateAllFields(currentUser);
+                checkIfDayHasPassed();
 
             }
 
@@ -128,6 +133,7 @@ public class MainActivity extends AppCompatActivity {
         handler.postDelayed(waterDrainageFunction, 1);
         handler.postDelayed(textChangeFunction, 2);
 
+
         textViewMessaggi.setText(getNewFlavourText(-1));
 
         imageViewSettings.setOnClickListener(new View.OnClickListener() {
@@ -135,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent switchToSettings = new Intent(getApplicationContext(), Settings.class);
                 switchToSettings.putExtra("email", authenticator.getCurrentUser().getEmail());
-                switchToSettings.putExtra("waterDrank", currentUser.waterDrankTodayInCentiliters/100);
+                switchToSettings.putExtra("waterDrank", currentUser.waterDrankTodayInCentiliters);
                 startActivityForResult(switchToSettings, ACTIVITY_ID);
             }
         });
@@ -231,6 +237,34 @@ public class MainActivity extends AppCompatActivity {
         return returnMsg;
     }
 
+    public void checkIfDayHasPassed(){
+
+        try {
+            if(!currentUser.latestLogDate.equals(getDateToString())){
+                startNewDay();
+            }
+        } catch (Exception e){
+
+        }
+
+    }
+
+    public void startNewDay(){
+        currentUser.latestLogDate = getDateToString();
+        currentUser.waterInaDayLogs.put(getDateToString(), Integer.toString(currentUser.waterDrankTodayInCentiliters));
+        userReference.child(getDateToString()).setValue(currentUser.waterInaDayLogs);
+        currentUser.waterDrankTodayInCentiliters = 0;
+    }
+
+    public String getDateToString(){
+
+        Date today = Calendar.getInstance().getTime();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+        String date = formatter.format(today);
+        return date;
+
+    }
+
     protected void updateAllFields(UserHelperClass user){
 
         this.currentUser = user;
@@ -238,6 +272,7 @@ public class MainActivity extends AppCompatActivity {
         this.progressBarAcquaBevuta.setMax(dailyWaterQuoteInMilliliters);
         this.plantName = currentUser.currentPlantName;
         this.textViewNomepianta.setText(plantName);
+        this.currentUser.lifetimeWaterDrankInCentiliters = user.lifetimeWaterDrankInCentiliters;
 
         try {
             int savedProgress = this.getIntent().getExtras().getInt("waterDrank");
@@ -260,11 +295,14 @@ public class MainActivity extends AppCompatActivity {
             if (!newName.equals("")) {
                 plantName = newName;
                 textViewNomepianta.setText(plantName);
+                userReference.child("currentPlantName").setValue(plantName);
             }
 
             progressBarAcquaBevuta.setProgress(currentWater + waterDrank);
             currentUser.waterDrankTodayInCentiliters+= waterDrank/10;
+            currentUser.lifetimeWaterDrankInCentiliters += waterDrank/10;
             userReference.child("waterDrankTodayInCentiliters").setValue(currentUser.waterDrankTodayInCentiliters);
+            userReference.child("lifetimeWaterDrankInCentiliters").setValue(currentUser.lifetimeWaterDrankInCentiliters);
 
         }
     }

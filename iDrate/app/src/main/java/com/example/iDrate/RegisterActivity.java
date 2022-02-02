@@ -37,6 +37,8 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
         getSupportActionBar().hide();
 
+        authenticator.signOut();
+
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
         editTextEta = findViewById(R.id.editTextEta);
@@ -67,14 +69,19 @@ public class RegisterActivity extends AppCompatActivity {
                 }
                 else {
                     registerUser(txt_email, txt_password);
+                    authenticator.signInWithEmailAndPassword(txt_email, txt_password);
                     String UID = authenticator.getCurrentUser().getUid();
                     createUserDatabase(UID, txt_username, Integer.parseInt(txt_peso), Integer.parseInt(txt_eta));
+
+                    authenticator.signOut();
 
                     Intent switchToStartingPage = new Intent(getApplicationContext(), StartingPageActivity.class);
                     startActivity(switchToStartingPage);
                     finish();
 
                 }
+
+
 
             }
         });

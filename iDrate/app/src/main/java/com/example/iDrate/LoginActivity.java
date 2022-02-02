@@ -37,6 +37,7 @@ public class LoginActivity extends AppCompatActivity {
                 String txt_email = editTextEmailLogin.getText().toString();
                 String txt_password = editTextEmailPassword.getText().toString();
                 loginUser(txt_email, txt_password);
+
             }
         });
     }

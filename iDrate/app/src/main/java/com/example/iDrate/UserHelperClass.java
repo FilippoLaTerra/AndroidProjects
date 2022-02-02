@@ -15,14 +15,16 @@ public class UserHelperClass {
     public String currentPlantName;
 
     public int waterToDrinkInCentiliters;
-    public int lifetimeWaterDrankInLiters;
+    public int lifetimeWaterDrankInCentiliters;
     public int waterDrankTodayInCentiliters;
 
     public HashMap<String, String> waterInaDayLogs;
+    public String latestLogDate;
 
     public UserHelperClass(){
 
     }
+
 
     public UserHelperClass(String UID, String username, int weight, int age) {
         this.username = username;
@@ -32,27 +34,13 @@ public class UserHelperClass {
         this.currentPlantName = "ermenegilda";
 
         this.waterToDrinkInCentiliters = calculateWater();
-        startNewDay();
-        this.lifetimeWaterDrankInLiters = 0;
+        this.lifetimeWaterDrankInCentiliters = 0;
 
+        this.latestLogDate = getDateToString();
         this.waterInaDayLogs = new HashMap<>();
     }
 
-    public void startNewDay(){
 
-        try{
-            this.waterInaDayLogs.put(getDateToString(), Integer.toString(waterDrankTodayInCentiliters));
-        } catch(Exception e) {
-
-        }
-
-        this.waterDrankTodayInCentiliters = 0;
-
-    }
-
-    public void addToTodayWater(int centilitersDrank){
-        this.waterDrankTodayInCentiliters += centilitersDrank;
-    }
 
     private int calculateWater() {
 
@@ -77,7 +65,6 @@ public class UserHelperClass {
         return date;
 
     }
-
 
 }
 

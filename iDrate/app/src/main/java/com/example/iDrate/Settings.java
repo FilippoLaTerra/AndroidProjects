@@ -10,6 +10,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class Settings extends AppCompatActivity {
 
     ImageView imageViewBackArrow;
@@ -35,8 +39,9 @@ public class Settings extends AppCompatActivity {
         textViewNomeUtente = findViewById(R.id.textViewNomeUtente);
         textViewAcquaBevutaInTotale = findViewById(R.id.textViewAcquaBevutaInTotale);
 
+
         textViewNomeUtente.setText(getIntent().getExtras().getString("email"));
-        textViewAcquaBevutaInTotale.setText(Double.toString(getIntent().getExtras().getDouble("waterDrank")) + " L");
+        textViewAcquaBevutaInTotale.setText(getIntent().getExtras().getInt("waterDrank") + " Cl");
 
 
 
