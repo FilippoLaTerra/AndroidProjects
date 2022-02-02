@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class StartingPageActivity extends AppCompatActivity {
 
-    Button buttonRegisterMain, buttonLoginMain, button;
+    Button buttonRegisterMain, buttonLoginMain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +18,6 @@ public class StartingPageActivity extends AppCompatActivity {
 
         buttonRegisterMain = findViewById(R.id.buttonRegisterMain);
         buttonLoginMain = findViewById(R.id.buttonLoginMain);
-        button = findViewById(R.id.button);
 
         buttonRegisterMain.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,13 +36,6 @@ public class StartingPageActivity extends AppCompatActivity {
             }
         });
 
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent switchToMain = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(switchToMain);
-            }
-        });
 
     }
 }

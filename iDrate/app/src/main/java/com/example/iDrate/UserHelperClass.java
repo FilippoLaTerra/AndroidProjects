@@ -56,7 +56,7 @@ public class UserHelperClass {
 
     private int calculateWater() {
 
-        waterToDrinkInCentiliters = (int) (weightInKilograms / 2289.2);
+        waterToDrinkInCentiliters = (int) (weightInKilograms / 22.892)*100;
 
         if (age <=10) {
             waterToDrinkInCentiliters *= .8;

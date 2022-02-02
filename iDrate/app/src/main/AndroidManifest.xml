@@ -25,9 +25,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".DatabaseTestActivity"
-            android:exported="false" />
-        <activity
             android:name=".Settings"
             android:exported="false" />
         <activity

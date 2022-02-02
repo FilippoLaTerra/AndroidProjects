@@ -31,25 +31,21 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-
     private static int ACTIVITY_ID = 1;
 
     ImageView imageViewPiantina, imageViewSettings;
-
     Button buttonBevi;
-
     ProgressBar progressBarAcquaBevuta;
-
     TextView textViewMessaggi, textViewNomepianta;
-
-    protected FirebaseAuth authenticator = FirebaseAuth.getInstance();
 
     FirebaseDatabase rootNode = FirebaseDatabase.getInstance();
     DatabaseReference reference = rootNode.getReference("Users");
 
-    UserHelperClass currentUser;
-    protected String plantName;
+    protected FirebaseAuth authenticator = FirebaseAuth.getInstance();
+    DatabaseReference userReference = rootNode.getReference("Users").child(authenticator.getCurrentUser().getUid());
 
+    protected UserHelperClass currentUser;
+    protected String plantName;
     protected int dailyWaterQuoteInMilliliters;
 
     private Handler handler = new Handler();
@@ -105,14 +101,20 @@ public class MainActivity extends AppCompatActivity {
 
         createNotificationChannel();
 
+        imageViewPiantina = findViewById(R.id.imageViewPiantina);
+        imageViewSettings = findViewById(R.id.imageViewSettings);
+        buttonBevi = findViewById(R.id.buttonBevi);
+        progressBarAcquaBevuta = findViewById(R.id.progressBarAcquaBevuta);
+        textViewMessaggi = findViewById(R.id.textViewMessaggi);
+        textViewNomepianta = findViewById(R.id.textViewNomepianta);
+
         reference.child( authenticator.getCurrentUser().getUid() ).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
-
                 currentUser = dataSnapshot.getValue(UserHelperClass.class);
-
+                updateAllFields(currentUser);
 
             }
 
@@ -122,25 +124,6 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
-
-        imageViewPiantina = findViewById(R.id.imageViewPiantina);
-        imageViewSettings = findViewById(R.id.imageViewSettings);
-        buttonBevi = findViewById(R.id.buttonBevi);
-        progressBarAcquaBevuta = findViewById(R.id.progressBarAcquaBevuta);
-        textViewMessaggi = findViewById(R.id.textViewMessaggi);
-        textViewNomepianta = findViewById(R.id.textViewNomepianta);
-
-        progressBarAcquaBevuta.setMax(dailyWaterQuoteInMilliliters);
-
-
-        try {
-            int savedProgress = this.getIntent().getExtras().getInt("waterDrank");
-            progressBarAcquaBevuta.setProgress(savedProgress);
-        }catch (Exception e){
-            progressBarAcquaBevuta.setProgress(dailyWaterQuoteInMilliliters);
-        }
-
-        textViewNomepianta.setText(plantName);
 
         handler.postDelayed(waterDrainageFunction, 1);
         handler.postDelayed(textChangeFunction, 2);
@@ -248,6 +231,23 @@ public class MainActivity extends AppCompatActivity {
         return returnMsg;
     }
 
+    protected void updateAllFields(UserHelperClass user){
+
+        this.currentUser = user;
+        this.dailyWaterQuoteInMilliliters = currentUser.waterToDrinkInCentiliters * 10;
+        this.progressBarAcquaBevuta.setMax(dailyWaterQuoteInMilliliters);
+        this.plantName = currentUser.currentPlantName;
+        this.textViewNomepianta.setText(plantName);
+
+        try {
+            int savedProgress = this.getIntent().getExtras().getInt("waterDrank");
+            this.progressBarAcquaBevuta.setProgress(savedProgress);
+        }catch (Exception e){
+            this.progressBarAcquaBevuta.setProgress(dailyWaterQuoteInMilliliters);
+        }
+
+    }
+
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == ACTIVITY_ID && resultCode == RESULT_OK) {
@@ -262,9 +262,9 @@ public class MainActivity extends AppCompatActivity {
                 textViewNomepianta.setText(plantName);
             }
 
-
             progressBarAcquaBevuta.setProgress(currentWater + waterDrank);
             currentUser.waterDrankTodayInCentiliters+= waterDrank/10;
+            userReference.child("waterDrankTodayInCentiliters").setValue(currentUser.waterDrankTodayInCentiliters);
 
         }
     }
