@@ -51,10 +51,41 @@
             android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/rinominaPiantina"
+                android:id="@+id/acquaBevutaInTotale"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_gravity="center">
+                android:layout_gravity="center_horizontal"
+                android:paddingTop="10dp">
+
+                <TextView
+                    android:id="@+id/textViewAcquaBevutaInTotaleTitolo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="Acqua Bevuta In Totale"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@+id/textViewAcquaBevutaInTotale"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/textViewAcquaBevutaInTotale"
+                    android:layout_width="330dp"
+                    android:layout_height="46dp"
+                    android:layout_marginStart="16dp"
+                    android:gravity="bottom"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:text="XXXX L" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/rinominaPiantina"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
 
                 <EditText
                     android:id="@+id/editTextNomePiantina"
@@ -63,6 +94,7 @@
                     android:layout_marginStart="16dp"
                     android:ems="10"
                     android:inputType="textPersonName"
+                    android:textColor="@color/white"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textViewRinominaPiantina" />
 
@@ -73,6 +105,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:text="Rinomina Piantina"
+                    android:textColor="@color/white"
                     android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -93,8 +126,8 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/nomeUtente"
                 android:layout_width="wrap_content"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:paddingTop="10dp">
 
                 <TextView
@@ -102,7 +135,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:text="Nome Utente"
+                    android:text="Email"
+                    android:textColor="@color/white"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toTopOf="@+id/textViewNomeUtente"
                     app:layout_constraintStart_toStartOf="parent" />
@@ -112,11 +146,11 @@
                     android:layout_width="330dp"
                     android:layout_height="46dp"
                     android:layout_marginStart="16dp"
-                    android:layout_marginBottom="12dp"
                     android:gravity="bottom"
+                    android:textColor="@color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    tools:text="nomeUtenteDaDatabase" />
+                    tools:text="emailDaDatabase" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -124,7 +158,7 @@
                 android:id="@+id/acquaBevuta"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="center_horizontal"
                 android:paddingTop="10dp">
 
                 <TextView
@@ -132,49 +166,22 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:text="Acqua Bevuta in totale"
+                    android:text="Acqua Bevuta Oggi"
+                    android:textColor="@color/white"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/textViewAcquaBevutaInTotale"
+                    app:layout_constraintBottom_toTopOf="@+id/textViewAcquaBevutaInTotaleOggi"
                     app:layout_constraintStart_toStartOf="parent" />
 
                 <TextView
-                    android:id="@+id/textViewAcquaBevutaInTotale"
+                    android:id="@+id/textViewAcquaBevutaInTotaleOggi"
                     android:layout_width="330dp"
                     android:layout_height="46dp"
                     android:layout_marginStart="16dp"
                     android:gravity="bottom"
+                    android:textColor="@color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     tools:text="XXXX L" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/tempomedioTraBevute"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:paddingTop="10dp">
-
-                <TextView
-                    android:id="@+id/textviewTempoMedioTraBevuteTitolo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:text="Tempo medio tra bevute"
-                    android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/textViewTempoMEdioTraBevute"
-                    app:layout_constraintStart_toStartOf="parent" />
-
-                <TextView
-                    android:id="@+id/textViewTempoMEdioTraBevute"
-                    android:layout_width="330dp"
-                    android:layout_height="46dp"
-                    android:layout_marginStart="16dp"
-                    android:gravity="bottom"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    tools:text="XXX h XXX min" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -191,7 +191,6 @@ public class MainActivity extends AppCompatActivity {
             textViewMessaggi.setText(getNewFlavourText(1));
 
         }
-
     }
 
     public void drainWaterLevel() {
@@ -205,7 +204,6 @@ public class MainActivity extends AppCompatActivity {
                                             "Dovresti bere almeno " + (double) dailyWaterQuoteInMilliliters/1000 + " Litri al giorno",
                                             //"Hai già bevuto " + currentUser.waterDrankTodayInCentiliters + " Centilitri d'acqua oggi!"
                                             };
-
 
         String[] needToDrinkMsg = new String[]{ "Non stai bevendo da un poco, dovresti reidratarti",
                                                 "Non hai sete? Non bevi da un po'",
