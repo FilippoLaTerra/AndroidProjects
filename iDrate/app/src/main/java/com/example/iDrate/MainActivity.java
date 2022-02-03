@@ -141,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent switchToSettings = new Intent(getApplicationContext(), Settings.class);
                 switchToSettings.putExtra("email", authenticator.getCurrentUser().getEmail());
-                switchToSettings.putExtra("waterDrank", currentUser.waterDrankTodayInCentiliters);
+                //switchToSettings.putExtra("waterDrank", currentUser.waterDrankTodayInCentiliters);
                 startActivityForResult(switchToSettings, ACTIVITY_ID);
             }
         });

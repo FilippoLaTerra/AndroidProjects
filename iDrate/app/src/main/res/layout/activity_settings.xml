@@ -50,6 +50,36 @@
             android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/acquaBevutaInTotale"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="10dp">
+
+                <TextView
+                    android:id="@+id/textViewAcquaBevutaInTotaleTitolo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="Acqua Bevuta In Totale"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@+id/textViewAcquaBevutaInTotale"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/textViewAcquaBevutaInTotale"
+                    android:layout_width="330dp"
+                    android:layout_height="46dp"
+                    android:layout_marginStart="16dp"
+                    android:gravity="bottom"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:text="XXXX L" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/rinominaPiantina"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -61,6 +91,7 @@
                     android:layout_marginStart="16dp"
                     android:ems="10"
                     android:inputType="textPersonName"
+                    android:textColor="@color/white"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textViewRinominaPiantina" />
 
@@ -71,6 +102,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:text="Rinomina Piantina"
+                    android:textColor="@color/white"
                     android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -100,6 +132,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:text="Email"
+                    android:textColor="@color/white"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toTopOf="@+id/textViewNomeUtente"
                     app:layout_constraintStart_toStartOf="parent" />
@@ -110,6 +143,7 @@
                     android:layout_height="46dp"
                     android:layout_marginStart="16dp"
                     android:gravity="bottom"
+                    android:textColor="@color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     tools:text="emailDaDatabase" />
@@ -128,16 +162,18 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:text="Acqua Bevuta Oggi"
+                    android:textColor="@color/white"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/textViewAcquaBevutaInTotale"
+                    app:layout_constraintBottom_toTopOf="@+id/textViewAcquaBevutaInTotaleOggi"
                     app:layout_constraintStart_toStartOf="parent" />
 
                 <TextView
-                    android:id="@+id/textViewAcquaBevutaInTotale"
+                    android:id="@+id/textViewAcquaBevutaInTotaleOggi"
                     android:layout_width="330dp"
                     android:layout_height="46dp"
                     android:layout_marginStart="16dp"
                     android:gravity="bottom"
+                    android:textColor="@color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     tools:text="XXXX L" />
