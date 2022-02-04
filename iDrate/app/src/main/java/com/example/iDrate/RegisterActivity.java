@@ -68,17 +68,7 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(RegisterActivity.this, "Peso non valido", Toast.LENGTH_SHORT);
                 }
                 else {
-                    registerUser(txt_email, txt_password);
-                    authenticator.signInWithEmailAndPassword(txt_email, txt_password);
-                    String UID = authenticator.getCurrentUser().getUid();
-                    createUserDatabase(UID, txt_username, Integer.parseInt(txt_peso), Integer.parseInt(txt_eta));
-
-                    authenticator.signOut();
-
-                    Intent switchToStartingPage = new Intent(getApplicationContext(), StartingPageActivity.class);
-                    startActivity(switchToStartingPage);
-                    finish();
-
+                    registerUser(txt_email, txt_password, txt_username, txt_eta, txt_peso);
                 }
 
 
@@ -88,12 +78,21 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
-    private void registerUser(String email, String password){
+    private void registerUser(String email, String password, String username, String eta, String peso){
         authenticator.createUserWithEmailAndPassword(email, password).addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
                     Toast.makeText(RegisterActivity.this, "Registrazione completata con successo", Toast.LENGTH_SHORT).show();
+                    authenticator.signInWithEmailAndPassword(email, password);
+                    String UID = authenticator.getCurrentUser().getUid();
+                    createUserDatabase(UID, username, Integer.parseInt(peso), Integer.parseInt(eta));
+
+                    authenticator.signOut();
+
+                    Intent switchToStartingPage = new Intent(getApplicationContext(), StartingPageActivity.class);
+                    startActivity(switchToStartingPage);
+                    finish();
 
                 } else {
                     Toast.makeText(RegisterActivity.this, "Registrazione fallita", Toast.LENGTH_SHORT).show();
