@@ -1,0 +1,22 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        jcenter()
+        // The Tuya IoT Maven repository URL.
+        maven {
+            url "https://maven-other.tuya.com/repository/maven-releases/"
+        }
+
+    }
+}
+rootProject.name = "My Application"
+include ':app'

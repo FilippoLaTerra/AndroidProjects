@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".homeActivity">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/CardViewDevices"
+        android:layout_width="match_parent"
+        android:layout_height="151dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageViewDeviceImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/textViewDeviceName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="7dp"
+                android:layout_marginEnd="5dp"
+                android:layout_toRightOf="@id/imageViewDeviceImage"
+                android:text="TextView"
+                tools:text="device NAme" />
+
+            <TextView
+                android:id="@+id/textViewDeviceID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textViewDeviceName"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="7dp"
+                android:layout_marginEnd="5dp"
+                android:layout_toRightOf="@id/imageViewDeviceImage"
+                android:text="TextView"
+                tools:text="device ID" />
+
+            <TextView
+                android:id="@+id/textViewProductID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textViewDeviceID"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="7dp"
+                android:layout_marginEnd="5dp"
+                android:layout_toRightOf="@id/imageViewDeviceImage"
+                android:text="TextView"
+                tools:text="product ID" />
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/buttonScanDevices"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="134dp"
+        android:layout_marginTop="65dp"
+        android:layout_marginEnd="134dp"
+        android:text="SCAN DEVICES"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CardViewDevices" />
+
+    <Button
+        android:id="@+id/buttonUnlock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="175dp"
+        android:layout_marginEnd="142dp"
+        android:layout_marginBottom="26dp"
+        android:text="unlock"
+        app:layout_constraintBottom_toTopOf="@+id/CardViewDevices"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/buttonCheckOnline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="41dp"
+        android:layout_marginEnd="42dp"
+        android:layout_marginBottom="24dp"
+        android:text="checkifOline"
+        app:layout_constraintBottom_toTopOf="@+id/CardViewDevices"
+        app:layout_constraintEnd_toStartOf="@+id/buttonUnlock"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/buttonConnectTo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="24dp"
+        android:text="connectTo"
+        app:layout_constraintBottom_toTopOf="@+id/CardViewDevices"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonUnlock" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
