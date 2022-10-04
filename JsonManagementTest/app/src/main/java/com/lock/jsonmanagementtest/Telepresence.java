@@ -1,14 +1,30 @@
 package com.lock.jsonmanagementtest;
 
 
+import lombok.Builder;
+import lombok.extern.jackson.Jacksonized;
+
 public class Telepresence {
 
-    String _id, robot, user, who, where, whom, email, when, zoom, start, join;
-    int duration, __v;
+    String _id;
+    String robot;
+    String user;
+    String who;
+    String where;
+    String whom;
+    String email;
+    String when;
+    String zoom;
+    String start;
+    String join;
+    int duration;
+    int __v;
+
 
     public Telepresence(){
         super();
     }
+
 
     public Telepresence(String _id, String robot, String user, String who, String where, String whom, String email, String when, String zoom, String start, String join, int duration, int __v) {
         this._id = _id;
@@ -19,10 +35,10 @@ public class Telepresence {
         this.whom = whom;
         this.email = email;
         this.when = when;
+        this.duration = duration;
         this.zoom = zoom;
         this.start = start;
         this.join = join;
-        this.duration = duration;
         this.__v = __v;
     }
 
@@ -90,22 +106,6 @@ public class Telepresence {
         this.when = when;
     }
 
-    public int getDuration() {
-        return duration;
-    }
-
-    public void setDuration(int duration) {
-        this.duration = duration;
-    }
-
-    public int get__v() {
-        return __v;
-    }
-
-    public void set__v(int __v) {
-        this.__v = __v;
-    }
-
     public String getZoom() {
         return zoom;
     }
@@ -128,6 +128,22 @@ public class Telepresence {
 
     public void setJoin(String join) {
         this.join = join;
+    }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
+
+    public int get__v() {
+        return __v;
+    }
+
+    public void set__v(int __v) {
+        this.__v = __v;
     }
 
     @Override

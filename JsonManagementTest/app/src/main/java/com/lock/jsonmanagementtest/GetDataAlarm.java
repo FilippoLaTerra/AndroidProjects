@@ -9,6 +9,11 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -16,9 +21,17 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class GetDataAlarm extends BroadcastReceiver {
+
+    ProgressDialog pd;
+    String json;
+    List<Telepresence> telepresences = new ArrayList<>();
+    final ObjectMapper objectMapper = new ObjectMapper();
+
     @Override
     public void onReceive(Context context, Intent intent) {
         Log.i("DATA_ALARM", "alarm executed");
@@ -69,7 +82,7 @@ public class GetDataAlarm extends BroadcastReceiver {
                 while ((line = reader.readLine()) != null) {
                     buffer.append(line+"\n");
                     Log.d("Response: ", "> " + line);   //here u ll get whole response...... :-)
-                    //json = (String) line;
+                    json = (String) line;
                 }
 
                 return buffer.toString();
@@ -98,6 +111,16 @@ public class GetDataAlarm extends BroadcastReceiver {
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
             Log.i("POSTEXECUTE", "");
+
+            try {
+json = "[{\"_id\":\"633ac13342c21e00149c9528\",\"robot\":\"63170c1e71a51800136c19d9\",\"user\":\"632c024ca1c1d10013b80372\",\"who\":\"filippo\",\"where\":\"testLocation\",\"whom\":\"Roberto\",\"email\":\"test@email.com\",\"when\":\"2022-10-03T13:38:00.000Z\",\"duration\":0,\"zoom\":\"75357393875\",\"start\":\"https://us04web.zoom.us/s/75357393875?zak=eyJ0eXAiOiJKV1QiLCJzdiI6IjAwMDAwMSIsInptX3NrbSI6InptX28ybSIsImFsZyI6IkhTMjU2In0.eyJhdWQiOiJjbGllbnRzbSIsInVpZCI6Ii1TaFNYX1hMUmgycEQ5dUlpRE5Pd2ciLCJpc3MiOiJ3ZWIiLCJzayI6IjM3NjQ3MzY4OTUyMzU2NzExOTkiLCJzdHkiOjEsIndjZCI6InVzMDQiLCJjbHQiOjAsIm1udW0iOiI3NTM1NzM5Mzg3NSIsImV4cCI6MTY2NDgwMTEwOSwiaWF0IjoxNjY0NzkzOTA5LCJhaWQiOiJlU2tQaDdwdlRPQ0ZrM2ZqYjNHU2VBIiwiY2lkIjoiIn0.mbUxSQT4ePWmutWIhc0dQVvdiBwj9ldmn5f_PTNKXEQ\",\"join\":\"https://us04web.zoom.us/j/75357393875?pwd=oY6Qd3uKaDeDw87fwFCkoySLSoagkn.1\",\"__v\":0},{\"_id\":\"633ae4a28079d200137994ff\",\"robot\":\"63170c1e71a51800136c19d9\",\"user\":\"632c024ca1c1d10013b80372\",\"who\":\"filippo\",\"where\":\"testroom\",\"whom\":\"roberto\",\"email\":\"test@email.it\",\"when\":\"2022-10-03T14:32:00.000Z\",\"duration\":0,\"zoom\":\"74398708692\",\"start\":\"https://us04web.zoom.us/s/74398708692?zak=eyJ0eXAiOiJKV1QiLCJzdiI6IjAwMDAwMSIsInptX3NrbSI6InptX28ybSIsImFsZyI6IkhTMjU2In0.eyJhdWQiOiJjbGllbnRzbSIsInVpZCI6Ii1TaFNYX1hMUmgycEQ5dUlpRE5Pd2ciLCJpc3MiOiJ3ZWIiLCJzayI6IjM3NjQ3MzY4OTUyMzU2NzExOTkiLCJzdHkiOjEsIndjZCI6InVzMDQiLCJjbHQiOjAsIm1udW0iOiI3NDM5ODcwODY5MiIsImV4cCI6MTY2NDgxMTIwMSwiaWF0IjoxNjY0ODA0MDAxLCJhaWQiOiJlU2tQaDdwdlRPQ0ZrM2ZqYjNHU2VBIiwiY2lkIjoiIn0.e5QwwXwVVSUSQ8R3f70eaVIt-gY0wqzdeG2uAXn8SKw\",\"join\":\"https://us04web.zoom.us/j/74398708692?pwd=gLr3uA8r0efE7iVB0uzTRrVTnjt7s5.1\",\"__v\":0}]";
+
+                objectMapper.enable(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY);
+                telepresences = objectMapper.readValue(json, new TypeReference<List<Telepresence>>(){});
+                telepresences.size();
+            } catch (JsonProcessingException e) {
+                e.printStackTrace();
+            }
         }
     }
 
