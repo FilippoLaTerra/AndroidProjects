@@ -1,7 +1,17 @@
 package com.lock.newtemiactionsystemtest.actions;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.lock.newtemiactionsystemtest.R;
+
+
 import android.util.Log;
 
+/**
+ * @author Filippo La Terra Maggiore
+ * @version 1.0
+ * This action class handles the Robot Temi movement
+ */
+@JsonIgnoreProperties(value = { "actionName" })
 public class MoveToLocationAction extends Action {
 
     protected String location;
@@ -9,8 +19,12 @@ public class MoveToLocationAction extends Action {
     protected int speed;
     protected String custom_fallback;
 
+    public MoveToLocationAction(){
+        super(R.integer.MoveToLocationAction);
+    }
+
     public MoveToLocationAction(String location, Boolean backwards, Integer speed, String custom_fallback) {
-        super(101);
+        super(R.integer.MoveToLocationAction);
 
         if(location.equals("") || location == null){
             //throws error
@@ -36,7 +50,7 @@ public class MoveToLocationAction extends Action {
     }
 
     public MoveToLocationAction(String location, Boolean backwards, Integer speed) {
-        super(101);
+        super(R.integer.MoveToLocationAction);
 
         if(location.equals("") || location == null){
             //throws error
@@ -69,6 +83,8 @@ public class MoveToLocationAction extends Action {
 
     @Override
     public void stop() {
+        
+        //temi SDK has stopMovement() as a function to stop all movement
         System.out.println(this.toString());
     }
 
@@ -79,6 +95,11 @@ public class MoveToLocationAction extends Action {
 
     @Override
     protected void doPost() {
+
+    }
+
+    @Override
+    protected void onError() {
 
     }
 

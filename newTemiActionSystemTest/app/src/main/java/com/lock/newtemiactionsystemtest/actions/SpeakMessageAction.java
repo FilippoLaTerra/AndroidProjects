@@ -2,13 +2,26 @@ package com.lock.newtemiactionsystemtest.actions;
 
 import android.util.Log;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.lock.newtemiactionsystemtest.R;
+
+/**
+ * @author Filippo La Terra Maggiore
+ * @version 1.0
+ *
+ */
+@JsonIgnoreProperties(value = { "actionName" })
 public class SpeakMessageAction extends Action{
 
     protected String message;
     protected String language;
 
+    public SpeakMessageAction(){
+        super(R.integer.SpeakMessageAction);
+    }
+
     public SpeakMessageAction(String message, String language) {
-        super(102);
+        super(R.integer.SpeakMessageAction);
 
         if(message.equals("") || message == null){
             //handles error
@@ -24,7 +37,7 @@ public class SpeakMessageAction extends Action{
     }
 
     public SpeakMessageAction(String message) {
-        super(102);
+        super(R.integer.SpeakMessageAction);
 
         if(message.equals("") || message == null){
             //handles error
@@ -51,6 +64,11 @@ public class SpeakMessageAction extends Action{
 
     @Override
     protected void doPost() {
+
+    }
+
+    @Override
+    protected void onError() {
 
     }
 

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="SHARED_SETTINGS">Temi_shared_settings</string>
+
+    <string name="defaultFallbackLocation">home base</string>
+    <integer name="defaultSpeed">2</integer>
+    <bool name="defaultBackwards">false</bool>
+    <integer name="defaultTiltAngle">45</integer>
+
+    <string name="defaultLanguage">IT</string>
+
+    <string name="defaultUnlockCode">0000</string>
+
+    <string name="robot_id">none</string>
+    <string name="connection_URL">none</string>
+
+</resources>

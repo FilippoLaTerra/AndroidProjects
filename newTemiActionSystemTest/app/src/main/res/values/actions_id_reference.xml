@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="WIP">101</integer>
+    <integer name="MoveToLocationAction">102</integer>
+    <integer name="SpeakMessageAction">103</integer>
+    <integer name="ControlLockerAction">104</integer>
+</resources>
