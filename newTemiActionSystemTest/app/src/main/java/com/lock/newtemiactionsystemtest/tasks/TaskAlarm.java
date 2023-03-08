@@ -5,8 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
-import org.apache.commons.lang3.SerializationUtils;
-
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.ObjectInput;
